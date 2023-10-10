@@ -45,7 +45,7 @@ The test results should validate the given buisiness rules and constarints of th
 
 | Ticket Type | Price |
 
-| ---------------- | ----------- |
+| ------ | --- |
 
 | INFANT | £0 |
 
