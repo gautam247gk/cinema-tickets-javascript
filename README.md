@@ -1,6 +1,6 @@
 # Cinema Tickets JavaScript
 
-This is a coding exercise by DWP which will allow me to demonstrate how I code and my approach to a given problem.
+This is a coding exercise by DWP written in js which will allow me to demonstrate how I code and my approach to a given problem.
 
 ## Installation
 
