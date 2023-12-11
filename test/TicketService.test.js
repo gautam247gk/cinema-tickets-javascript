@@ -67,28 +67,45 @@ describe("TicketService.js", () => {
   describe("CalculateTicketCost", () => {
     it("should return the correct cost for an infant ticket", () => {
       const service = new TicketService();
-      const cost = service.calculateTicketCost("INFANT");
+      const accountId = 210947;
+      const ticketTypeRequests = [
+        new TicketTypeRequest("INFANT", 1),
+        new TicketTypeRequest("ADULT", 1),
+      ];
+      const totalCost = service.purchaseTickets(
+        accountId,
+        ...ticketTypeRequests
+      );
+      const cost =
+        totalCost -
+        service.purchaseTickets(accountId, new TicketTypeRequest("ADULT", 1));
       assert.strictEqual(cost, 0);
     });
 
     it("should return the correct cost for a child ticket", () => {
       const service = new TicketService();
-      const cost = service.calculateTicketCost("CHILD");
-      assert.strictEqual(cost, 10);
+      const accountId = 210947;
+      const ticketTypeRequests = [new TicketTypeRequest("CHILD", 1)];
+      const totalCost = service.purchaseTickets(
+        accountId,
+        ...ticketTypeRequests
+      );
+      assert.strictEqual(totalCost, 10);
     });
 
     it("should return the correct cost for an adult ticket", () => {
       const service = new TicketService();
-      const cost = service.calculateTicketCost("ADULT");
-      assert.strictEqual(cost, 20);
+      const accountId = 210947;
+      const ticketTypeRequests = [new TicketTypeRequest("ADULT", 1)];
+      const totalCost = service.purchaseTickets(
+        accountId,
+        ...ticketTypeRequests
+      );
+      assert.strictEqual(totalCost, 20);
     });
 
     it("should throw an error for an invalid ticket type", () => {
-      const service = new TicketService();
-      assert.throws(
-        () => service.calculateTicketCost("INVALID"),
-        InvalidPurchaseException
-      );
+      assert.throws(() => new TicketTypeRequest("INVALID", 1), TypeError);
     });
   });
 });

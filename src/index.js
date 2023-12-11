@@ -16,4 +16,5 @@ const ticketTypeRequests = [
   new TicketTypeRequest("CHILD", 3),
   new TicketTypeRequest("ADULT", 1),
 ];
-t.purchaseTickets(1234, ...ticketTypeRequests);
+const cost = t.purchaseTickets(1234, ...ticketTypeRequests);
+console.log("Ticket purchesed sucessfully with cost: ", cost);

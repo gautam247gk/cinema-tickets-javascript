@@ -80,7 +80,8 @@ export default class TicketService {
     let srs = new SeatReservationService();
     srs.reserveSeat(accountId, adultCount + childCount);
 
-    console.log(adultCount + childCount + " Tickets purchased successfully.");
+    // console.log(adultCount + childCount + " Tickets purchased successfully.");
+    return totalCost;
   }
 
   // Private method(ES2020) to calculate the cost of a ticket based on its type
